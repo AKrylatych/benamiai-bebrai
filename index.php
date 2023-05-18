@@ -12,4 +12,5 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+echo "My first PHP script!";
 ?>
