@@ -1,6 +1,6 @@
 <?php
 include('dbcreds.php');
-
+echo "Testing environment variables.\n";
 echo "Servername: $servername\n";
 echo "DBName: $dbname\n";
 echo "Username: $username\n";
