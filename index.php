@@ -5,6 +5,7 @@ echo "Servername: $servername\n";
 echo "DBName: $dbname\n";
 echo "Username: $username\n";
 echo "Password: $password\n";
+
 try {
     $conn = new PDO("mysql:host=$servername:3306;dbname=$dbname", $username, $password);
     // Set the PDO error mode to exception
