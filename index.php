@@ -1,10 +1,10 @@
 <?php
 include('dbcreds.php');
-echo "Testing environment variables.\n";
-echo "Servername: $servername\n";
-echo "DBName: $dbname\n";
-echo "Username: $username\n";
-echo "Password: $password\n";
+echo "Testing environment variables.<br>";
+echo "Servername: $servername<br>";
+echo "DBName: $dbname<br>";
+echo "Username: $username<br>";
+echo "Password: $password<br>";
 
 try {
     $conn = new PDO("mysql:host=$servername:3306;dbname=$dbname", $username, $password);
