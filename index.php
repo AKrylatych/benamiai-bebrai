@@ -14,7 +14,11 @@ echo "Password: $password<br>";
 echo "<br><br>---";
 print_r($_ENV);
 echo "<br><br>---";
-
+echo "Testing environment variables Again.<br>";
+echo "Servername:", getenv('Server');
+echo "DBName: $database<br>";
+echo "Username:", getenv('Username');
+echo "Password:", getenv('Password');
 try {
     $conn = new PDO("mysql:host=$servername:3306;dbname=$database", $username, $password);
     // Set the PDO error mode to exception
