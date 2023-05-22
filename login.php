@@ -16,16 +16,16 @@
         <?php
         include "usercontrol.php";
         $user = new usercontrol();
-        if (isset($_POST['vardas']) &&
-            isset($_POST['slaptazodis'])
+        if (isset($_POST['vardas_login']) &&
+            isset($_POST['slaptazodis_login'])
         ) {
-            $vartotojo_vardas = $_POST['vardas'];
-            $vartotojo_slaptazodis = $_POST['slaptazodis'];
+            $vartotojo_vardas = $_POST['vardas_login'];
+            $vartotojo_slaptazodis = $_POST['slaptazodis_login'];
             $user = new usercontrol();
             $user->loginUser($vartotojo_vardas, $vartotojo_slaptazodis);
-
         } else {
             echo "No params, failed login.";
+            $user = new usercontrol();
             $user->back_to_login();
         } ?>
     </div>

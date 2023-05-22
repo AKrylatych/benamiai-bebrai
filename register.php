@@ -15,6 +15,7 @@
     <div class="white-box">
         <?php
         include "usercontrol.php";
+
         if (isset($_POST['vardas']) &&
             isset($_POST['slaptazodis']) &&
             isset($_POST['elpastas'])
@@ -23,10 +24,14 @@
             $vartotojo_vardas = $_POST['vardas'];
             $vartotojo_slaptazodis = $_POST['slaptazodis'];
             $vartotojo_elpastas = $_POST['elpastas'];
+            echo "Kuriamas naujas vartotojas...<br>";
             $userctl = new usercontrol();
+
             $userctl->addUser($vartotojo_vardas, $vartotojo_slaptazodis, $vartotojo_elpastas);
         } else {
             echo "Netinkami duomenys.<br>Bandykite is naujo.";
+            $userctl = new usercontrol();
+            $userctl->back_to_login();
         }
         ?>
     </div>
