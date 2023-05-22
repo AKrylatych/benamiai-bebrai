@@ -13,7 +13,7 @@ if (isset($_POST['vardas']) &&
     echo "<br> Vartotojo ivestas slaptazodis: $vartotojo_slaptazodis<br>";
     $userctl = new usercontrol();
     echo "new usercontrol";
-    $userctl->addTempUser($vartotojo_vardas, $vartotojo_slaptazodis);
+    $userctl->addUser($vartotojo_vardas, $vartotojo_slaptazodis);
     echo "user added successfully.<br>";
 } else {
     echo "Netinkami duomenys.<br>Bandykite is naujo.";

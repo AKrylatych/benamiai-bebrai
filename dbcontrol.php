@@ -5,6 +5,9 @@ class dbcontrol
     protected $username;
     protected $password;
     protected $database;
+
+
+//    const ANIMALTABLE=;
     protected $conn;
 
     public function __construct()
@@ -33,14 +36,15 @@ class dbcontrol
         return $this->conn->query($query);
     }
 
-    public function insertUser($name, $hashedpasswd, $email) {
-        $query = "INSERT INTO vartotojai2 (Vardas, Slaptazodis) VALUES (?, ?)";
+    public function insertNormalUser($name, $hashedpasswd, $email) {
+        // TODO: Make a proper variable for the user table
+        $query = "INSERT INTO vartotojai2  (Vardas, Slaptazodis, Elpastas) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             echo "Error preparing statement: " . $this->conn->error;
             return;
         }
-        $stmt->bind_param("ss", $name, $hashedpasswd);
+        $stmt->bind_param("sss", $name, $hashedpasswd, $email);
         if ($stmt->execute()) {
             echo "New record created successfully";
         } else {
