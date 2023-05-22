@@ -29,11 +29,15 @@ class dbcontrol
 
     public function getValuebyID($ID, $column, $tablename) {
         $query = "SELECT $column FROM $tablename WHERE ID = $ID";
+
         return $this->conn->query($query);
     }
     public function findValueinColumn($searchstring, $column, $tablename) {
         $query = "SELECT $column FROM $tablename WHERE $column LIKE '%$searchstring'";
-        return $this->conn->query($query);
+        echo "<br>findvaluequery<br>";
+        $result = $this->conn->query($query);
+        echo $result;
+        return $result;
     }
 
     public function insertNormalUser($name, $hashedpasswd, $email) {
@@ -46,7 +50,7 @@ class dbcontrol
         }
         $stmt->bind_param("sss", $name, $hashedpasswd, $email);
         if ($stmt->execute()) {
-            echo "New record created successfully";
+            echo "Vartotojas sukurtas sekmingai!";
         } else {
             echo "Error: " , $query , "<br>" , $stmt->error;
         }
