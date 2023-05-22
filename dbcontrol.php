@@ -22,8 +22,6 @@ class dbcontrol
             header("Location: /pages/connection_err.html");
             die("Connection failed: " . $this->conn->connect_error);
         }
-        echo "Connected successfully";
-
     }
 
     public function getValuebyID($ID, $column, $tablename) {
