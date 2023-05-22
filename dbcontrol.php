@@ -50,12 +50,6 @@ class dbcontrol
         } else {
             echo "Error: " , $query , "<br>" , $stmt->error;
         }
-//        $sql = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
-//        if ($this->conn->query($sql) === TRUE) {
-//            echo "New record! woohoo!";
-//        } else {
-//            echo "Error: " . $sql . "<br>" . $this->conn->error;
-//        }
     }
 
 }

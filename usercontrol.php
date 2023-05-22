@@ -5,7 +5,7 @@ class usercontrol {
     public function addUser($name, $insecure_passwd, $email)  { // Naujas vartotojas
         $hashctl = new hashcontrol();
         $dbctl = new dbcontrol();
-        echo "Does user exist?", $this->findUserbyName($name), "<br>";
+//        echo "Does user exist?" . $this->findUserbyName($name) . "<br>";
 //        if ($this->findUserbyName($name) != null) { // Tikrinama ar jau egzistuoja toks varotojas
             $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
             $dbctl->insertNormalUser($name, $hashed_passwd, $email);
