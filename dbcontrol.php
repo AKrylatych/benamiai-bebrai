@@ -26,17 +26,19 @@ class dbcontrol
 //    }
 
     public function insertUser($name, $hashedpasswd) {
-        echo "inserting user";
+        echo "<br>inserting user<br>";
 
-        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
-        echo "Query: $query";
-        if ($this->conn->query($query) === TRUE) {
+        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
+//        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $name, $hashedpasswd);
+        echo "Query: $query<br>";
+        if ($stmt->execute()) {
             echo "New record created successfully";
-            echo "user insterted";
-
         } else {
-            echo "Error: " . $query . "<br>" . $this->conn->error;
+            echo "Error: " . $query . "<br>" . $stmt->error;
         }
+        echo "inserted?";
     }
 
 }
