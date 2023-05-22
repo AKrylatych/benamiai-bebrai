@@ -11,11 +11,7 @@ class usercontrol {
         } else {
             echo "<br><br>Toks vartotojas jau yra, prašome naudoti kitą vardą.<br><br>";
         }
-        echo "<script>
-            setTimeout(function() {
-                window.location.href = 'index.html';
-            }, 4000);
-             </script>";
+        $this->back_to_login();
     }
     public function loginUser($name, $insecure_passwd) {
         $hashctl = new hashcontrol();
@@ -30,11 +26,7 @@ class usercontrol {
                 echo "<br><br>Tokio vartotojo nėra arba duomenys neteisingi.<br><br>";
             }
         }
-        echo "<script>
-            setTimeout(function() {
-                window.location.href = 'index.html';
-            }, 4000);
-             </script>";
+        $this->back_to_login();
     }
     protected function findUserbyName($name):mysqli_result { // Ieskomas vartotojas pagal varda
         $dbctl = new dbcontrol();
@@ -52,5 +44,12 @@ class usercontrol {
         echo "Get encrypted password<br>";
         print_r($encrypted_passwd);
         return $encrypted_passwd;
+    }
+    public function back_to_login() {
+        echo "<script>
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 4000);
+             </script>";
     }
 }
