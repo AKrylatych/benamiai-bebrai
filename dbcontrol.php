@@ -8,9 +8,11 @@ class dbcontrol
      */
     public function __construct()
     {
+        echo "connecting to db";
         $this->conn = new mysqli($servername, $username, $password);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+        echo "connecting to db2";
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
         echo "Connected successfully";
 
@@ -28,7 +30,7 @@ class dbcontrol
     public function insertUser($name, $hashedpasswd) {
         echo "inserting user";
 
-        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ($name, $hashedpasswd)";
+        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
         if ($this->conn->query($query) === TRUE) {
             echo "New record created successfully";
             echo "user insterted";
