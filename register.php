@@ -1,6 +1,8 @@
 <html>
 <body>
+<p>i exist</p>
 <?php
+echo "woah";
 include("usercontrol.php");
 echo "i am registering.";
 //if (isset($_GET['vardas']) && isset($_POST['slaptazodis'])) {
