@@ -26,25 +26,37 @@ class dbcontrol
 //    }
 
     public function insertUser($name, $hashedpasswd) {
-        $localconn = $this->conn;
-        echo "<br>inserting user<br>";
-        echo "querytest<br>";
-        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
-        echo "querytest2<br>";
-//        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
-        $stmt = $localconn->prepare($query);
-        if ($stmt === false) {
-            echo "Error preparing statement: " . $localconn->error;
-            return;
+//        $localconn = $this->conn;
+//        echo "<br>inserting user<br>";
+//        echo "querytest<br>";
+//        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
+//        echo "querytest2<br>";
+////        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
+//        $stmt = $localconn->prepare($query);
+//        if ($stmt === false) {
+//            echo "Error preparing statement: " . $localconn->error;
+//            return;
+//        }
+//        echo "querytest3<br>";
+//        $stmt->bind_param("ss", $name, $hashedpasswd);
+//        echo "querytest4<br>";
+//        if ($stmt->execute()) {
+//            echo "New record created successfully";
+//        } else {
+//            echo "Error: " , $query , "<br>" , $stmt->error;
+//        }
+        $conn = new mysqli($servername, $username, $password, $database);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        echo "querytest3<br>";
-        $stmt->bind_param("ss", $name, $hashedpasswd);
-        echo "querytest4<br>";
-        if ($stmt->execute()) {
-            echo "New record created successfully";
+        echo "Connected successfully";
+        $sql = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record! woohoo!";
         } else {
-            echo "Error: " , $query , "<br>" , $stmt->error;
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
+
     }
 
 }
