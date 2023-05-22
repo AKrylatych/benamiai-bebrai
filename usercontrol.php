@@ -26,12 +26,12 @@ class usercontrol {
                 echo "Tikrinami duomenys...<br>";
                 if ($hashctl->check_hashed_password($insecure_passwd, $database_password)) {
                     echo "Viskas gerai, tinka.";
+                    
                 } else {
                     echo "<br><br>Tokio vartotojo nėra arba duomenys neteisingi.<br><br>";
                 }
             }
         }
-        $this->back_to_login();
     }
     protected function findUserbyName($name):mysqli_result { // Ieskomas vartotojas pagal varda
         $dbctl = new dbcontrol();
@@ -43,7 +43,6 @@ class usercontrol {
         return $dbctl->getValuebyID($UID, "Slaptazodis", $dbctl->usertable);
     }
     protected function getUserPasswordbyName($name) {
-        echo "Get encrypted password<br>";
 
         $dbctl = new dbcontrol();
         $result = $dbctl->findPasswordbyName($name);
@@ -51,8 +50,6 @@ class usercontrol {
             return 0;
         } else {
             $row = $result->fetch_assoc();
-            echo "Assoc output <br>";
-            print_r($row);
             return $row['Slaptazodis'];
         }
     }
