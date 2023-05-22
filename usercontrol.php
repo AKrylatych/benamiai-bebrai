@@ -19,6 +19,7 @@ class usercontrol extends dbcontrol {
 //        echo "email: $email<br>";
         $hashctl = new hashcontrol();
         $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
+        echo "hashing password: $hashed_passwd";
         $this->insertUser($name, $hashed_passwd);
 
     }

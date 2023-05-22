@@ -26,9 +26,13 @@ class dbcontrol
     }
 
     public function insertUser($name, $hashedpasswd) {
+        echo "inserting user";
+
         $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ($name, $hashedpasswd)";
         if ($this->conn->query($query) === TRUE) {
             echo "New record created successfully";
+            echo "user insterted";
+
         } else {
             echo "Error: " . $query . "<br>" . $this->conn->error;
         }
