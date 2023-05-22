@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 include("usercontrol.php");
 echo "i am registering.";
@@ -9,8 +11,13 @@ echo "i am registering.";
     $userctl = new usercontrol();
     $userctl->addTempUser($vartotojo_vardas, $vartotojo_slaptazodis);
     echo "user added successfully.<br>";
+
 //
 //} else {
 //    echo "No params, failed login.";
 //}
+
+?>
+</body>
+</html>
 
