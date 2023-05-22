@@ -33,7 +33,7 @@ class dbcontrol
         return $this->conn->query($query);
     }
 
-    public function insertUser($name, $hashedpasswd) {
+    public function insertUser($name, $hashedpasswd, $email) {
         $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
