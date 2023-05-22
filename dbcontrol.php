@@ -1,13 +1,21 @@
 <?php
-include "dbcreds.php";
 class dbcontrol
 {
+    protected $servername;
+    protected $username;
+    protected $password;
+    protected $database;
     protected $conn;
     //    TODO: Remove noinspection for production
     /** @noinspection PhpUndefinedVariableInspection
      */
     public function __construct()
     {
+        $this->servername = getenv('Server');
+        $this->username = getenv('Username');
+        $this->password = getenv('Password');
+        $this->database = getenv('Database');
+
         $this->conn = new mysqli($servername, $username, $password, $database);
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);
