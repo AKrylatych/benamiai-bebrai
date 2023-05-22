@@ -21,6 +21,7 @@
             $vartotojo_vardas = $_POST['vardas_login'];
             $vartotojo_slaptazodis = $_POST['slaptazodis_login'];
             $user = new usercontrol();
+            echo "Prisijungiama...<br>";
             $user->loginUser($vartotojo_vardas, $vartotojo_slaptazodis);
         } else {
             echo "No params, failed login.";
