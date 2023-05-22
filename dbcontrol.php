@@ -26,21 +26,20 @@ class dbcontrol
 //    }
 
     public function insertUser($name, $hashedpasswd) {
+        $localconn = $this->conn;
         echo "<br>inserting user<br>";
         echo "querytest<br>";
         $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
         echo "querytest2<br>";
 //        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
-        $stmt = $this->conn->prepare($query);
+        $stmt = $localconn->prepare($query);
         if ($stmt === false) {
-            echo "Error preparing statement: " . $this->conn->error;
+            echo "Error preparing statement: " . $localconn->error;
             return;
         }
         echo "querytest3<br>";
         $stmt->bind_param("ss", $name, $hashedpasswd);
         echo "querytest4<br>";
-        echo "stmt query: ", $stmt;
-        echo "Query: $stmt<br>";
         if ($stmt->execute()) {
             echo "New record created successfully";
         } else {
