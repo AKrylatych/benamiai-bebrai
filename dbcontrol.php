@@ -47,7 +47,6 @@ class dbcontrol
 //        }
         $conn = new mysqli($servername, $username, $password, $database);
         echo "querytest2<br>";
-
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }

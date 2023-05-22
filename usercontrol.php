@@ -20,9 +20,9 @@ class usercontrol {
 //        echo "email: $email<br>";
         $hashctl = new hashcontrol();
         $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
-        echo "hashing password: $hashed_passwd";
+        echo "hashing password: $hashed_passwd<br>";
         $dbctl = new dbcontrol();
-        $dbctl>insertUser($name, $hashed_passwd);
+        $dbctl->insertUser($name, $hashed_passwd);
 
     }
 //
