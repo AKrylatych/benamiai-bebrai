@@ -4,23 +4,58 @@
     <meta charset="UTF-8">
     <title>Benamiu bebru prisijungimas</title>
     <link rel="stylesheet" href="pages/index.css">
-
 </head>
 <body>
-<!--    TODO: Replace register.php with login-->
-<h2>Registracija</h2>
-<form action="register.php" method="post">
-    <label for="register_name_input">Vardas:</label><br>
-    <input id="register_name_input" type="text" name="vardas"><br>
+<div class="container">
+    <div class="form-container">
+        <h2 align="center">Benamiai bebrai</h2>
 
-    <label for="register_password_input">Slaptazodis:</label><br>
-    <input id="register_password_input" type="text" name="slaptazodis"><br>
+        <div id="login-form">
+            <h3 align="center" >Prisijungti</h3>
+            <form action="login.php" method="post">
+                <label for="login_name_input">Vartotojo vardas:</label><br>
+                <input id="login_name_input" type="text" name="username"><br>
 
-    <label for="register_email_input">el.pastas:</label><br>
-    <input id="register_email_input" type="text" name="elpastas"><br>
+                <label for="login_password_input">Slaptažodis:</label><br>
+                <input id="login_password_input" type="password" name="password"><br>
 
-    <input type="submit">
-</form>
+                <input type="submit" value="Prisijungti">
+            </form>
+            <p>Naujas vartotojas? <a href="#" onclick="toggleForm()">Registruokitės čia</a></p>
+        </div>
+
+        <div id="register-form" class="hide">
+            <h3 align="center">Registracija</h3>
+            <form action="register.php" method="post">
+                <label for="register_name_input">Vardas:</label><br>
+                <input id="register_name_input" type="text" name="vardas"><br>
+
+                <label for="register_password_input">Slaptažodis:</label><br>
+                <input id="register_password_input" type="password" name="slaptazodis"><br>
+
+                <label for="register_email_input">El. paštas:</label><br>
+                <input id="register_email_input" type="text" name="elpastas"><br>
+
+                <input type="submit" value="Registruotis">
+            </form>
+            <p>Turite paskyrą? <a href="#" onclick="toggleForm()">Prisijunkite čia</a></p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function toggleForm() {
+        var loginForm = document.getElementById("login-form");
+        var registerForm = document.getElementById("register-form");
+
+        loginForm.classList.toggle("hide");
+        registerForm.classList.toggle("hide");
+    }
+</script>
 
 </body>
+<footer>
+ <p>Benamiai bebrai <br> Visos teisės saugomos.</p>
+</footer>
 </html>

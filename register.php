@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Negalima prisijungti</title>
+    <title>Registracija</title>
     <link rel="stylesheet" href="/pages/connection_err.css">
     <style>
         .container {
-            background-image: url("/images/dog_in_field.jpg");
+            background-image: url("/images/blue_field_dog.jpg");
         }
     </style>
 </head>
@@ -33,6 +33,3 @@
 </div>
 </body>
 </html>
-
-
-
