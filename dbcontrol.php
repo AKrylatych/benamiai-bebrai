@@ -2,13 +2,13 @@
 include "dbcreds.php";
 class dbcontrol
 {
-    protected $conn;
+//    protected $conn;
     //    TODO: Remove noinspection for production
     /** @noinspection PhpUndefinedVariableInspection
      */
     public function __construct()
     {
-        $this->conn = new mysqli($servername, $username, $password, $database);
+        $conn = new mysqli($servername, $username, $password, $database);
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -28,7 +28,7 @@ class dbcontrol
     public function insertUser($name, $hashedpasswd) {
 //        $localconn = $this->conn;
 //        echo "<br>inserting user<br>";
-//        echo "querytest<br>";
+        echo "querytest<br>";
 //        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
 //        echo "querytest2<br>";
 ////        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
@@ -46,16 +46,20 @@ class dbcontrol
 //            echo "Error: " , $query , "<br>" , $stmt->error;
 //        }
         $conn = new mysqli($servername, $username, $password, $database);
+        echo "querytest2<br>";
+
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
         echo "Connected successfully";
+        echo "querytest3<br>";
         $sql = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
         if ($conn->query($sql) === TRUE) {
             echo "New record! woohoo!";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        echo "querytest4<br>";
 
     }
 

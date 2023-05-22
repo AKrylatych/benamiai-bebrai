@@ -1,7 +1,7 @@
 <?php
 include "hashcontrol.php";
 include "dbcontrol.php";
-class usercontrol extends dbcontrol {
+class usercontrol {
 //    public function adduser($name, $surname, $email, $insecure_passwd)  {
 //        echo "name: $name";
 //        echo "Inputted password: $insecure_passwd<br>";
@@ -21,7 +21,8 @@ class usercontrol extends dbcontrol {
         $hashctl = new hashcontrol();
         $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
         echo "hashing password: $hashed_passwd";
-        $this->insertUser($name, $hashed_passwd);
+        $dbctl = new dbcontrol();
+        $dbctl>insertUser($name, $hashed_passwd);
 
     }
 //
