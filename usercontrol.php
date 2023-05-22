@@ -5,7 +5,7 @@ class usercontrol {
     public function addUser($name, $insecure_passwd, $email)  {
         $hashctl = new hashcontrol();
         $dbctl = new dbcontrol();
-        $this->findUserbyName($name);
+//        $this->findUserbyName($name);
         $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
         $dbctl->insertNormalUser($name, $hashed_passwd, $email);
 
