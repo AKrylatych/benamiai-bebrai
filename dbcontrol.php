@@ -31,6 +31,10 @@ class dbcontrol
         $query = "SELECT $column FROM $tablename WHERE $column LIKE '%$searchstring'";
         return $this->conn->query($query);
     }
+    public function findPasswordbyName($name):mysqli_result {
+        $query = "SELECT Slaptazodis FROM $this->usertable WHERE Vardas LIKE '%$name'";
+        return $this->conn->query($query);
+    }
 
     public function insertNormalUser($name, $hashedpasswd, $email):void {
         $query = "INSERT INTO $this->usertable (Vardas, Slaptazodis, Elpastas) VALUES (?, ?, ?)";

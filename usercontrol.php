@@ -19,12 +19,16 @@ class usercontrol {
         if ($this->findUserbyName($name)->num_rows == 0) { // Tikrinama ar yra tokiu vartotoju
             echo "<br><br>Tokio vartotojo nėra arba duomenys neteisingi.<br><br>";
         } else {
-            $database_password = $this->getUserPasswordbyName($name);
-            echo "Tikrinami duomenys...<br>";
-            if ($hashctl->check_hashed_password($insecure_passwd, $database_password)) {
-                echo "Viskas gerai, tinka.";
-            } else {
+            $database_password= $this->getUserPasswordbyName($name);
+            if ($database_password == 0) {
                 echo "<br><br>Tokio vartotojo nėra arba duomenys neteisingi.<br><br>";
+            } else {
+                echo "Tikrinami duomenys...<br>";
+                if ($hashctl->check_hashed_password($insecure_passwd, $database_password)) {
+                    echo "Viskas gerai, tinka.";
+                } else {
+                    echo "<br><br>Tokio vartotojo nėra arba duomenys neteisingi.<br><br>";
+                }
             }
         }
         $this->back_to_login();
@@ -39,15 +43,18 @@ class usercontrol {
         return $dbctl->getValuebyID($UID, "Slaptazodis", $dbctl->usertable);
     }
     protected function getUserPasswordbyName($name) {
-        $dbctl = new dbcontrol();
-        echo "Jungiamasi prie DB...<br>";
-        $result = $dbctl->findValueinColumn($name, "Vardas", $dbctl->usertable);
-        print_r($result);
-        print_r($result->fetch_column(3));
-        $encrypted_passwd = $result->fetch_column(3);
         echo "Get encrypted password<br>";
-        print_r($encrypted_passwd);
-        return $encrypted_passwd;
+
+        $dbctl = new dbcontrol();
+        $result = $dbctl->findPasswordbyName($name);
+        if ($result->num_rows == 0) {
+            return 0;
+        } else {
+            $row = $result->fetch_assoc();
+            echo "Assoc output <br>";
+            print_r($row);
+            return $row['Slaptazodis'];
+        }
     }
     public function back_to_login():void {
         echo "<script>
