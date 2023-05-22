@@ -1,5 +1,5 @@
 <?php
-include('dbcreds.php');
+include "dbcreds.php";
 class dbcontrol
 {
     protected $conn;
@@ -16,14 +16,14 @@ class dbcontrol
 
     }
 
-    public function getValuebyID($ID, $column, $tablename) {
-        $query = "SELECT $column FROM $tablename WHERE ID = $ID";
-        return $this->conn->query($query);
-    }
-    public function findValueinColumn($searchstring, $column, $tablename) {
-        $query = "SELECT $column FROM $tablename WHERE $column LIKE '%$searchstring'";
-        return $this->conn->query($query);
-    }
+//    public function getValuebyID($ID, $column, $tablename) {
+//        $query = "SELECT $column FROM $tablename WHERE ID = $ID";
+//        return $this->conn->query($query);
+//    }
+//    public function findValueinColumn($searchstring, $column, $tablename) {
+//        $query = "SELECT $column FROM $tablename WHERE $column LIKE '%$searchstring'";
+//        return $this->conn->query($query);
+//    }
 
     public function insertUser($name, $hashedpasswd) {
         echo "inserting user";
