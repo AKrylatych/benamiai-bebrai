@@ -1,4 +1,19 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Negalima prisijungti</title>
+    <link rel="stylesheet" href="connection_err.css">
+    <style>
+        .container {
+            background-image: url("/images/dog_in_field.jpg");
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="white-box">
+        <?php
 include "usercontrol.php";
 if (isset($_POST['vardas']) &&
     isset($_POST['slaptazodis']) &&
@@ -14,5 +29,11 @@ if (isset($_POST['vardas']) &&
     echo "user added successfully.<br>";
 } else {
     echo "Netinkami duomenys.<br>Bandykite is naujo.";
-}
+} ?>
+    </div>
+</div>
+</body>
+</html>
+
+
 
