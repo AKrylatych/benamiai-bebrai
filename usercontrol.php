@@ -42,6 +42,8 @@ class usercontrol {
         $dbctl = new dbcontrol();
         echo "Jungiamasi prie DB...<br>";
         $result = $dbctl->findValueinColumn($name, "Vardas", $dbctl->usertable);
+        print_r($result);
+        print_r($result->fetch_column(3));
         $encrypted_passwd = $result->fetch_column(3);
         echo "Get encrypted password<br>";
         print_r($encrypted_passwd);
