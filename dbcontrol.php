@@ -6,7 +6,7 @@ class dbcontrol
     protected string $password;
     protected string $database;
 
-    private string $conn;
+    private mysqli $conn;
     public string $usertable = "vartotojai2";
 
     public function __construct()
