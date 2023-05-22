@@ -32,11 +32,12 @@ class dbcontrol
 //        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ss", $name, $hashedpasswd);
-        echo "Query: $query<br>";
+        echo "stmt query: ", $stmt;
+        echo "Query: $stmt<br>";
         if ($stmt->execute()) {
             echo "New record created successfully";
         } else {
-            echo "Error: " . $query . "<br>" . $stmt->error;
+            echo "Error: " , $query , "<br>" , $stmt->error;
         }
         echo "inserted?";
     }
