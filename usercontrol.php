@@ -10,8 +10,12 @@ class usercontrol {
             $dbctl->insertNormalUser($name, $hashed_passwd, $email);
         } else {
             echo "<br><br>Toks vartotojas jau yra, prašome naudoti kitą vardą.<br><br>";
-            sleep (4);
-            header("Location: index.html");
+            echo "<script>
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 4000);
+             </script>";
+//            header("Location: index.html");
         }
     }
     public function loginUser($name, $insecure_passwd) {
