@@ -21,7 +21,6 @@ class dbcontrol
         if ($this->conn->connect_error) {
             header("Location: /pages/connection_err.html");
             die("Connection failed: " . $this->conn->connect_error);
-
         }
         echo "Connected successfully";
 
@@ -34,10 +33,7 @@ class dbcontrol
     }
     public function findValueinColumn($searchstring, $column, $tablename) {
         $query = "SELECT $column FROM $tablename WHERE $column LIKE '%$searchstring'";
-        $query_result = $this->conn->query($query);
-        echo "<br>findvaluequery<br>";
-        print_r($query_result);
-        return $query_result;
+        return $this->conn->query($query);
     }
 
     public function insertNormalUser($name, $hashedpasswd, $email) {
@@ -45,7 +41,7 @@ class dbcontrol
         $query = "INSERT INTO vartotojai2  (Vardas, Slaptazodis, Elpastas) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
-            echo "Error preparing statement: " . $this->conn->error;
+            echo "Klaida ruošiant užklausą: " . $this->conn->error;
             return;
         }
         $stmt->bind_param("sss", $name, $hashedpasswd, $email);
