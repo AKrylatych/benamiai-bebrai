@@ -6,10 +6,10 @@ class usercontrol {
         $hashctl = new hashcontrol();
         $dbctl = new dbcontrol();
 //        if ($this->findUserbyName($name)->num_rows == 0) {
+        $this->findUserbyName($name);
         $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
         $dbctl->insertNormalUser($name, $hashed_passwd, $email);
         echo "finding user by name <br>";
-        $this->findUserbyName($name);
         echo "<br>END find<br>";
 //        } else {
 //            echo "Toks vartotojas jau egzistuoja. Prasome naudoti kita varda.";
@@ -23,8 +23,8 @@ class usercontrol {
     protected function findUserbyName($name) { // Ieskomas vartotojas pagal varda
         $dbctl = new dbcontrol();
         $finduservar = $dbctl->findValueinColumn($name, "Vardas", "vartotojai2");
-        echo "finduservar: ";
-        echo $finduservar;
+        echo "finduservar: <br>";
+        print_r($finduservar);
         echo "<br><br>";
         return $finduservar;
     }
