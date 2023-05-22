@@ -1,5 +1,5 @@
 <?php
-include('hashcontrol.php');
+include(hashcontrol::class);
 class usercontrol extends dbcontrol {
     public function adduser($name, $surname, $email, $insecure_passwd)  {
         echo "name: $name";

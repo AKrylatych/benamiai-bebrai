@@ -1,5 +1,5 @@
 <?php
-include("usercontrol.php");
+include(usercontrol::class);
 
 if (isset($_GET['vardas']) && isset($_GET['slaptazodis'])) {
     $vartotojo_vardas = $_GET['vardas'];
