@@ -34,7 +34,7 @@ class dbcontrol
     }
 
     public function insertUser($name, $hashedpasswd, $email) {
-        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES (?, ?)";
+        $query = "INSERT INTO vartotojai2 (Vardas, Slaptazodis) VALUES (?, ?)";
         $stmt = $this->conn->prepare($query);
         if ($stmt === false) {
             echo "Error preparing statement: " . $this->conn->error;

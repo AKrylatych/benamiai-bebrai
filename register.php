@@ -1,6 +1,6 @@
 <?php
 include "usercontrol.php";
-if (isset($_GET['vardas']) &&
+if (isset($_POST['vardas']) &&
     isset($_POST['slaptazodis']) &&
     isset($_POST['elpastas'])
 ) {
