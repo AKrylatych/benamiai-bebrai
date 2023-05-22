@@ -29,15 +29,13 @@ class dbcontrol
 
     public function getValuebyID($ID, $column, $tablename) {
         $query = "SELECT $column FROM $tablename WHERE ID = $ID";
-
-        return $this->conn->query($query);
+        $result = $this->conn->query($query);
+        return $result;
     }
     public function findValueinColumn($searchstring, $column, $tablename) {
         $query = "SELECT $column FROM $tablename WHERE $column LIKE '%$searchstring'";
         echo "<br>findvaluequery<br>";
-        $result = $this->conn->query($query);
-        echo $result;
-        return $result;
+        print_r($this->conn->query($query));
     }
 
     public function insertNormalUser($name, $hashedpasswd, $email) {
