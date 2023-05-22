@@ -9,8 +9,6 @@ if (isset($_POST['vardas']) &&
     $vartotojo_slaptazodis = $_POST['slaptazodis'];
     $vartotojo_elpastas = $_POST['elpastas'];
 
-    echo "vartotojo vardas; $vartotojo_slaptazodis";
-    echo "<br> Vartotojo ivestas slaptazodis: $vartotojo_slaptazodis<br>";
     $userctl = new usercontrol();
     $userctl->addUser($vartotojo_vardas, $vartotojo_slaptazodis, $vartotojo_elpastas);
     echo "user added successfully.<br>";
