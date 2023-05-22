@@ -32,6 +32,10 @@ class dbcontrol
         echo "querytest2<br>";
 //        $query = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
         $stmt = $this->conn->prepare($query);
+        if ($stmt === false) {
+            echo "Error preparing statement: " . $this->conn->error;
+            return;
+        }
         echo "querytest3<br>";
         $stmt->bind_param("ss", $name, $hashedpasswd);
         echo "querytest4<br>";
@@ -42,7 +46,6 @@ class dbcontrol
         } else {
             echo "Error: " , $query , "<br>" , $stmt->error;
         }
-        echo "inserted?";
     }
 
 }
