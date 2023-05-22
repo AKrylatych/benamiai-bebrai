@@ -2,7 +2,7 @@
 include "hashcontrol.php";
 include "dbcontrol.php";
 class usercontrol {
-    public function addUser($name, $email, $insecure_passwd)  {
+    public function addUser($name, $insecure_passwd, $email)  {
         $hashctl = new hashcontrol();
         $dbctl = new dbcontrol();
         $this->findUserbyName($name);
