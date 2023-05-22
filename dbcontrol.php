@@ -2,15 +2,15 @@
 include "dbcreds.php";
 class dbcontrol
 {
-//    protected $conn;
+    protected $conn;
     //    TODO: Remove noinspection for production
     /** @noinspection PhpUndefinedVariableInspection
      */
     public function __construct()
     {
-        $conn = new mysqli($servername, $username, $password, $database);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+        $this->conn = new mysqli($servername, $username, $password, $database);
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
         echo "Connected successfully";
 
@@ -45,18 +45,12 @@ class dbcontrol
 //        } else {
 //            echo "Error: " , $query , "<br>" , $stmt->error;
 //        }
-        $conn = new mysqli($servername, $username, $password, $database);
-        echo "querytest2<br>";
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        echo "Connected successfully";
         echo "querytest3<br>";
         $sql = "INSERT INTO vartotojai (Vardas, Slaptazodis) VALUES ('$name', '$hashedpasswd')";
-        if ($conn->query($sql) === TRUE) {
+        if ($this->conn->query($sql) === TRUE) {
             echo "New record! woohoo!";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . $this->conn->error;
         }
         echo "querytest4<br>";
 
