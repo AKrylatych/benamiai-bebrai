@@ -7,13 +7,14 @@ class usercontrol {
         $dbctl = new dbcontrol();
         if ($this->findUserbyName($name)->num_rows == 0) { // Tikrinama ar yra tokiu vartotoju
             $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);  // Slaptazodzio hashavimas
+            echo "Atnaujinama duomenų bazė...<br>";
             $dbctl->insertNormalUser($name, $hashed_passwd, $email); //
         } else {
             echo "<br><br>Toks vartotojas jau yra, prašome naudoti kitą vardą.<br><br>";
         }
         $this->back_to_login();
     }
-    public function loginUser($name, $insecure_passwd) {
+    public function loginUser($name, $insecure_passwd):void {
         $hashctl = new hashcontrol();
         $dbctl = new dbcontrol();
         if ($this->findUserbyName($name)->num_rows == 0) { // Tikrinama ar yra tokiu vartotoju

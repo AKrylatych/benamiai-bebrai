@@ -15,7 +15,6 @@
     <div class="white-box">
         <?php
         include "usercontrol.php";
-        $user = new usercontrol();
         if (isset($_POST['vardas_login']) &&
             isset($_POST['slaptazodis_login'])
         ) {
