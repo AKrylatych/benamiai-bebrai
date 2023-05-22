@@ -6,7 +6,12 @@ class usercontrol {
         $hashctl = new hashcontrol();
         $dbctl = new dbcontrol();
 //        if ($this->findUserbyName($name)->num_rows == 0) {
-        $this->findUserbyName($name);
+        $searchresult = $this->findUserbyName($name);
+        if ($searchresult->num_rows == 0) {
+            echo "<br><br>No rows found! you're good to go!<br><br>";
+        } else {
+            echo "<br><br>Hey we found some rows! in fact, . $searchresult->num_rows . !<br><br>";
+        }
         $hashed_passwd = $hashctl->get_hashed_password($insecure_passwd);
         $dbctl->insertNormalUser($name, $hashed_passwd, $email);
         echo "finding user by name <br>";
