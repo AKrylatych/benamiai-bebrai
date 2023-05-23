@@ -45,9 +45,9 @@ class guicontrol extends usercontrol
             echo "<td>$value</td>";
         }
         echo "</tr>";
-
+        echo " rowprint: ", print_r($row);
         echo "<tr>"; // Duomenys keitimui
-        echo "<td></td><form action='update_row.php' method='post'>";
+        echo "<td></td><form action='update_row_result.php' method='post'>";
         echo "<td><select name='new_vartotojo_tipas'>"; // Vartotojo tipas
         echo "<option value='Gaudytojas'>Gaudytojas</option>";
         echo "<option value='Moderatorius'>Moderatorius</option>";
@@ -55,11 +55,11 @@ class guicontrol extends usercontrol
         echo "</select></td>";
 
 //        $row = $selected_row->fetch_assoc();
-        echo "<td><input name='new_vartojo_vardas' type='text' value='".$row['Vardas']."'></td>"; // Vardas
+        echo "<td><input name='new_vartojo_vardas' type='text' value='" . $row['Vardas'] . "'></td>"; // Vardas
 
         echo "<td> * * *</td>"; // Praleisti slaptazodi
 
-        echo "<td><input name='new_vartotojo_elpastas' type='text' value='".$row['Elpastas']."'></td>"; // Elpastas
+        echo "<td><input name='new_vartotojo_elpastas' type='text' value='" . $row['Elpastas'] . "'></td>"; // Elpastas
         echo "<td>";
         echo "<input type='hidden' name='rowid' value='$rowid'>";
         echo "<input type='submit' value='Keisti' name='confirm_edit'>";
@@ -82,8 +82,6 @@ class guicontrol extends usercontrol
 
         echo "<tbody>";
         while ($row = $table->fetch_assoc()) {
-            echo "--DEBUG--<br><br>";
-            echo print_r($row);
             echo "<tr>";
             // Generuoja eilutes
 //            $colnum = 0;
