@@ -33,17 +33,17 @@ class guicontrol extends usercontrol
         echo "<table>";
         echo "<thead>";
         echo "<tr>";
-        foreach ($columns as $column) {
-            if($column->name == "Slaptazodis") {
-                echo '<th> * * * </th>';
-            } else {
-                echo '<th>' . $column->name . '</th>';
-            }
+        foreach ($columns as $column) { // Spausdinami antrastiniai duomenys
+            echo '<th>' . $column->name . '</th>';
         }
         echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
         echo "<tr>";
+        $row = $selected_row->fetch_assoc();
+        foreach ($row as $value) { // pavyzdinis
+            echo "<td>$value</td>";
+        }
         echo "</tr>";
 
         echo "<tr>"; // Duomenys keitimui
@@ -54,7 +54,7 @@ class guicontrol extends usercontrol
         echo "<option value='Vartotojas'>Vartotojas</option>";
         echo "</select></td>";
 
-        $row = $selected_row->fetch_assoc();
+//        $row = $selected_row->fetch_assoc();
         echo "<td><input name='new_vartojo_vardas' type='text' value='$row[2]'></td>"; // Vardas
 
         echo "<td></td>"; // Praleisti slaptazodi
@@ -82,6 +82,8 @@ class guicontrol extends usercontrol
 
         echo "<tbody>";
         while ($row = $table->fetch_assoc()) {
+            echo "--DEBUG--<br><br>";
+            echo print_r($row);
             echo "<tr>";
             // Generuoja eilutes
 //            $colnum = 0;
