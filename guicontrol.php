@@ -55,11 +55,11 @@ class guicontrol extends usercontrol
         echo "</select></td>";
 
 //        $row = $selected_row->fetch_assoc();
-        echo "<td><input name='new_vartojo_vardas' type='text' value='$row[2]'></td>"; // Vardas
+        echo "<td><input name='new_vartojo_vardas' type='text' value='".$row['Vardas']."'></td>"; // Vardas
 
-        echo "<td></td>"; // Praleisti slaptazodi
+        echo "<td> * * *</td>"; // Praleisti slaptazodi
 
-        echo "<td><input name='new_vartotojo_elpastas' type='text' value='$row[4]'></td>"; // Elpastas
+        echo "<td><input name='new_vartotojo_elpastas' type='text' value='".$row['Elpastas']."'></td>"; // Elpastas
         echo "<td>";
         echo "<input type='hidden' name='rowid' value='$rowid'>";
         echo "<input type='submit' value='Keisti' name='confirm_edit'>";
@@ -88,11 +88,11 @@ class guicontrol extends usercontrol
             // Generuoja eilutes
 //            $colnum = 0;
             $rowid = 0;
-            echo "<td>" . $row[0] . "</td>";
-            echo "<td>" . $row[1] . "</td>";
-            echo "<td>" . $row[2] . "</td>";
+            echo "<td>" . $row['VartotojoID'] . "</td>";
+            echo "<td>" . $row['Tipas'] . "</td>";
+            echo "<td>" . $row['Vardas'] . "</td>";
             echo "<td> * * * </td>";
-            echo "<td>" . $row[3] . "</td>";
+            echo "<td>" . $row['Elpastas'] . "</td>";
             echo "<td><form action='delete_row.php' method='post'>";
             echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
             echo "<input type='hidden' name='username' value='$this->username'>";

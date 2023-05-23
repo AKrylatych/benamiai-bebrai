@@ -14,12 +14,22 @@
             include "guicontrol.php";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
             echo "Sveikas, ", $guictl->username, "!<br>";
-            $rowid = $_POST['rowid'];
 
             if (isset($_POST['confirm_edit'])) {
                 $userctl = new usercontrol();
-                $userctl->updateUser($_POST['rowid'], $_POST['new_vartotojo_tipas'], $_POST['new_vartojo_vardas'], $_POST['new_vartotojo_elpastas']);
+                echo "Recieved values: <br>";
+                echo "rowid: ", $_POST['rowid'];
+                echo "vartipas: ", $_POST['new_vartotojo_tipas'];
+                echo "varvardas: ", $_POST['new_vartojo_vardas'];
+                echo "varpastas: ", $_POST['new_vartotojo_elpastas'];
+                if ($userctl->updateUser($_POST['rowid'], $_POST['new_vartotojo_tipas'], $_POST['new_vartojo_vardas'], $_POST['new_vartotojo_elpastas'])) {
+                    echo "Sėkmingai atnaujintas vartotojas!";
+                } else {
+                    echo "Klaida: Nepavyko atnaujinti vartotojo.";
+
+                }
             } else {
+                $rowid = $_POST['rowid'];
                 $guictl->draw_tablerow($rowid);
             }
             $guictl->spawnBackToGUI();
