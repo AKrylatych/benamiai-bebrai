@@ -15,8 +15,8 @@
 
             $rowid = $_POST['rowid'];
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
-            $dbctl = new dbcontrol();
-            $row = $dbctl->getRowbyID($rowid);
+//            $dbctl = new dbcontrol();
+//            $row = $dbctl->getRowbyID($rowid);
             $guictl->spawnBackToGUI();
             ?>
         </div>

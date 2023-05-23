@@ -1,4 +1,7 @@
-<?php
+<?php /** @noinspection SqlResolve */
+
+/** @noinspection SqlNoDataSourceInspection */
+
 class dbcontrol
 {
     protected string $servername;

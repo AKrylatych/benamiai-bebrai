@@ -11,7 +11,7 @@
         <div class="users">
             <h1>Įrašo redagavimas</h1>
             <?php
-            include "dbcontrol.php";
+            echo "debug0<br>";
             include "guicontrol.php";
 
             echo "debug1<br>";
@@ -30,7 +30,6 @@
 
             ?>
         </div>
-
     </div>
 </div>
 </body>

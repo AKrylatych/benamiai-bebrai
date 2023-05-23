@@ -13,21 +13,13 @@ class guicontrol
         echo '<input type="submit" value="Atsijungti">';
         echo '</form>';
     }
-    public function spawnBackToGUI() {
-        switch ($this->usertype) {
-            case 'Gaudytojas':
-                $url = "gaudytojas_GUI.php";
-                break;
-            case 'Moderatorius':
-                $url = "moderatorius_GUI.php";
-                break;
-            case 'Vartotojas':
-                $url = "vartotojas_GUI.php";
-                break;
-            default:
-                $url = "index.html";
-                break;
-        }
+    public function spawnBackToGUI():void {
+        $url = match ($this->usertype) {
+            'Gaudytojas' => "gaudytojas_GUI.php",
+            'Moderatorius' => "moderatorius_GUI.php",
+            'Vartotojas' => "vartotojas_GUI.php",
+            default => "index.html",
+        };
         echo "<form action='$url'>";
         echo '<input type="submit" value="Grįžti">';
         echo "<input type='hidden' name='username' value='$this->username'>";
@@ -36,7 +28,7 @@ class guicontrol
     }
     public function draw_tablerow($rowid):void {
         $dbctl = new dbcontrol();
-        echo "i'm doing things <br>";
+        echo "I'm doing things <br>";
         $selected_row = $dbctl->getRowbyID($rowid);
         $columns = $selected_row->fetch_fields();
         echo "<table>";
@@ -97,8 +89,11 @@ class guicontrol
     }
     public function draw_usertable():void {
         $dbctl = new dbcontrol();
+        echo "deee";
         $table = $dbctl->selectUserTable();
+        echo "deee2";
         $columns = $table->fetch_fields();
+        echo "deee3";
         echo "<table>";
         echo "<thead>";
         echo "<tr>";
