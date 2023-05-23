@@ -16,8 +16,9 @@
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
             echo "Vartotojas: ", $guictl->username, "<br>";
             $userctl = new usercontrol();
-            $userctl->deleteUserbyUID($rowid);
             $guictl->spawnBackToGUI();
+            $userctl->deleteUserbyUID($rowid);
+            echo "test1";
             ?>
         </div>
     </div>
