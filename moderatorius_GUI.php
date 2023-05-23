@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Moderatoriaus sąsaja</title>
-    <link rel="stylesheet" href="../pages/user_ui.css">
+    <link rel="stylesheet" href="pages/user_ui.css">
 </head>
 <body>
 <div class="container">
@@ -11,7 +11,7 @@
         <div class="users">
             <h1>Moderatoriaus sąsaja</h1>
             <?php
-            include "../guicontrol.php";
+            include "guicontrol.php";
             $username = $_POST['username'];
             $usertype = $_POST['usertype'];
             echo "Sveikas, ", $username, "!<br>";

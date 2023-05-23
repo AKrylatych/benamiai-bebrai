@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gaudytojo sąsaja</title>
-    <link rel="stylesheet" href="../pages/user_ui.css">
+    <link rel="stylesheet" href="pages/user_ui.css">
 </head>
 <body>
 <div class="container">

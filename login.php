@@ -26,13 +26,13 @@
             $userType = $user->getUserTypebyName($vartotojo_vardas);
             switch ($userType) {
                 case 'Gaudytojas':
-                    $url = "sasajos/gaudytojas_GUI.php";
+                    $url = "gaudytojas_GUI.php";
                     break;
                 case 'Moderatorius':
-                    $url = "sasajos/moderatorius_GUI.php";
+                    $url = "moderatorius_GUI.php";
                     break;
                 case 'Vartotojas':
-                    $url = "sasajos/vartotojas_GUI.php";
+                    $url = "vartotojas_GUI.php";
                     break;
                 default:
                     echo "Bloga užklausa.";
