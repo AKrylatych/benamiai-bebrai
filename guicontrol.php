@@ -124,14 +124,14 @@ class guicontrol
                         break;
                     case 4:
                         echo "<td>" . $value . "</td>";
-                        echo "<td><form action='delete_row.php'>";
+                        echo "<td><form action='delete_row.php' method='post'>";
                         echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
                         echo "<input type='hidden' name='username' value='$this->username'>";
                         echo "<input type='hidden' name='usertype' value='$this->usertype'>";
                         echo "<input type='hidden' name='rowid' value='$rowid'>";
                         echo "</form></td>";
 
-                        echo "<td><form action='update_row.php'>";
+                        echo "<td><form action='update_row.php' method='post'>";
                         echo "<input type='submit' value='Redaguoti'>";
                         echo "<input type='hidden' name='username' value='$this->username'>";
                         echo "<input type='hidden' name='usertype' value='$this->usertype'>";
@@ -139,7 +139,7 @@ class guicontrol
                         echo "</form></td>";
                         break;
                     default:
-                        echo "<td><input>" . $value . "</td>";
+                        echo "<td>" . $value . "</td>";
                         break;
                 }
                 $colnum++;
