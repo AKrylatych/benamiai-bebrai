@@ -11,7 +11,7 @@
         <div class="users">
             <h1>Moderatoriaus sąsaja</h1>
             <?php
-            include "guicontrol.php";
+            include "../guicontrol.php";
             $username = $_POST['username'];
             $usertype = $_POST['usertype'];
             echo "Sveikas, ", $username, "!<br>";
