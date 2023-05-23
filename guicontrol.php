@@ -1,12 +1,13 @@
 <?php
 
-include dbcontrol::class;
+include "dbcontrol.php";
 class guicontrol
 {
     protected $username;
     protected $usertype;
     public function __construct($username, $usertype)
     {
+        echo "constructing...";
         $this->username = $username;
         $this->usertype = $usertype;
     }
