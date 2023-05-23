@@ -62,6 +62,8 @@ class guicontrol extends usercontrol
         echo "<td><input name='new_vartotojo_elpastas' type='text' value='" . $row['Elpastas'] . "'></td>"; // Elpastas
         echo "<td>";
         echo "<input type='hidden' name='rowid' value='$rowid'>";
+        echo "<input type='hidden' name='username' value='$this->username'>";
+        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
         echo "<input type='submit' value='Keisti' name='confirm_edit'>";
         echo "</form></tr>";
         echo "</tbody></table>";
@@ -104,38 +106,7 @@ class guicontrol extends usercontrol
             echo "<input type='hidden' name='usertype' value='$this->usertype'>";
             echo "<input type='hidden' name='rowid' value='" . $row['VartotojoID']. "'>";
             echo "</form></td>";
-//                        $rowid = $value;
-//            foreach ($row as $value) {
-//                switch ($colnum) {
-//                    case 0:
-//                        echo "<td>" . $value . "</td>";
-//                        $rowid = $value;
-//                        break;
-//                    case 3:
-//                        echo "<td> * * * </td>";
-//                        break;
-//                    case 4:
-//                        echo "<td>" . $value . "</td>";
-//                        echo "<td><form action='delete_row.php' method='post'>";
-//                        echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
-//                        echo "<input type='hidden' name='username' value='$this->username'>";
-//                        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
-//                        echo "<input type='hidden' name='rowid' value='$rowid'>";
-//                        echo "</form></td>";
-//
-//                        echo "<td><form action='update_row.php' method='post'>";
-//                        echo "<input type='submit' value='Redaguoti'>";
-//                        echo "<input type='hidden' name='username' value='$this->username'>";
-//                        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
-//                        echo "<input type='hidden' name='rowid' value='$rowid'>";
-//                        echo "</form></td>";
-//                        break;
-//                    default:
-//                        echo "<td>" . $value . "</td>";
-//                        break;
-//                }
-//                $colnum++;
-//            }
+
             echo "<tr>";
         }
         echo "</tbody>";
