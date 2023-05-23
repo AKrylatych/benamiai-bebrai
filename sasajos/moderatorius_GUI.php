@@ -16,6 +16,7 @@
             echo "Tipas: ", $_POST['usertype'], "<br>";
 
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
+            echo "guicontrol";
             $guictl->draw_usertable();
             ?>
         </div>

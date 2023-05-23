@@ -14,7 +14,10 @@ class guicontrol
     public function draw_usertable() {
         $dbctl = new dbcontrol();
         $table = $dbctl->selectTable("vartotojai2");
+        echo "dbget<br>";
+        print_r($table);
         $columns = $table->fetch_fields();
+        echo "tablefetch<br>";
         echo "<table>";
 
         echo "<thead>";
