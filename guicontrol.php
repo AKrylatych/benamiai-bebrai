@@ -19,8 +19,20 @@ class guicontrol
         while ($row = $table->fetch_assoc()) {
             echo "<tr>";
             // Generuoja eilutes
+            $colnum = 0;
             foreach ($row as $value) {
-                echo "<td>" . $value . "</td>";
+                switch ($colnum) {
+                    case 3:
+                        echo "<td> * * * </td>";
+                        break;
+                    case 4:
+                        echo "<td> pomegranate</td>";
+                        break;
+                    default:
+                        echo "<td>" . $value . "</td>";
+                        break;
+                }
+                $colnum++;
             }
             echo "<tr>";
         }

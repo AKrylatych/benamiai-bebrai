@@ -6,8 +6,7 @@ body {
 }
 
 .container {
-    width: 800px;
-    height: 400px;
+    width: fit-content;
     background-color: #fff;
     margin: 50px auto;
     border-radius: 10px;
