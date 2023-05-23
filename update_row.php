@@ -13,8 +13,7 @@
             <?php
             include "guicontrol.php";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
-            print_r($_POST);
-            echo "Sveikas, ", $guictl->username, "!<br>";
+            echo "Vartotjas: ", $guictl->username, "<br>";
 
             if (isset($_POST['confirm_edit'])) {
                 $userctl = new usercontrol();

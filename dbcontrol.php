@@ -64,9 +64,12 @@ class dbcontrol
             echo "Error: " , $query , "<br>" , $stmt->error;
         }
     }
-
     public function updateUserRow($UID, $type, $name, $email):bool {
         $query = "UPDATE $this->usertable SET Tipas = '$type', Vardas = '$name', Elpastas = '$email' WHERE VartotojoID = $UID";
+        return $this->conn->query($query);
+    }
+    public function deleteUserRow($UID):mysqli_result {
+        $query = "DELETE FROM $this->usertable WHERE VartotojID = $UID";
         return $this->conn->query($query);
     }
 
