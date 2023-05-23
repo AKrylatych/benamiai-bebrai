@@ -12,10 +12,12 @@
             <h1>Moderatoriaus sąsaja</h1>
             <?php
             include "guicontrol.php";
-            echo "Sveikas, ", $_POST['username'], "!<br>";
-            echo "Tipas: ", $_POST['usertype'], "<br>";
-
-            $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
+            $username = $_POST['username'];
+            $usertype = $_POST['usertype'];
+            echo "Sveikas, ", $username, "!<br>";
+            echo "Tipas: ", $usertype, "<br>";
+            echo "testas";
+            $guictl = new guicontrol();
             echo "guicontrol";
             $guictl->draw_usertable();
             ?>

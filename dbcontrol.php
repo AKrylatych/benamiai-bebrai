@@ -1,7 +1,7 @@
 <?php
 class dbcontrol
 {
-    protected string$servername;
+    protected string $servername;
     protected string $username;
     protected string $password;
     protected string $database;
@@ -39,8 +39,8 @@ class dbcontrol
         $query = "SELECT Tipas FROM $this->usertable WHERE Vardas LIKE '%$name'";
         return $this->conn->query($query);
     }
-    public function selectTable($table):mysqli_result {
-        $query = "SELECT * FROM $table";
+    public function selectUserTable():mysqli_result {
+        $query = "SELECT * FROM $this->usertable";
         return $this->conn->query($query);
     }
 

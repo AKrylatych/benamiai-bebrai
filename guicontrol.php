@@ -5,16 +5,14 @@ class guicontrol
 {
     protected $username;
     protected $usertype;
-    public function __construct($username, $usertype)
+    public function __construct()
     {
         echo "constructing...";
-        $this->username = $username;
-        $this->usertype = $usertype;
     }
 
     public function draw_usertable() {
         $dbctl = new dbcontrol();
-        $table = $dbctl->selectTable("vartotojai2");
+        $table = $dbctl->selectUserTable();
         echo "dbget<br>";
         print_r($table);
         $columns = $table->fetch_fields();
