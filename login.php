@@ -39,7 +39,7 @@
                     $user->back_to_login();
                     break;
             }
-            echo "User: $userType";
+            echo "<br>Vartotojo tipas: $userType";
             echo '<form action="'.$url.'" method="post">';
             echo '<input type="submit" value="Prisijungti">';
             echo '<input type="hidden" name="usertype" value="'.$userType.'">';

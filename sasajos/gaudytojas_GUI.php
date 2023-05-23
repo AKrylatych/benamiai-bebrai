@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Gaudytojo sąsaja</title>
-    <link rel="stylesheet", href="../pages/user_ui.css">
+    <link rel="stylesheet" href="../pages/user_ui.css">
 </head>
 <body>
 <div class="container">
     <div class="content">
-        <h1>Vartotojo sąsaja</h1>
+        <h1>Gaudytojo sąsaja</h1>
         <?php
             echo "Sveikas, ", $_POST['username'], "!<br>";
             echo "Tipas: ", $_POST['usertype'], "<br>";
