@@ -12,18 +12,14 @@
             <h1>Įrašo trynimas</h1>
             <?php
             include "guicontrol.php";
-            print_r($_POST);
             $rowid = $_POST['rowid'];
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
-            echo "Vartotjas: ", $guictl->username, "<br>";
+            echo "Vartotojas: ", $guictl->username, "<br>";
             $userctl = new usercontrol();
-            print_r($userctl->deleteUserbyUID($rowid));
-            //            $dbctl = new dbcontrol();
-//            $row = $dbctl->getRowbyID($rowid);
+            $userctl->deleteUserbyUID($rowid);
             $guictl->spawnBackToGUI();
             ?>
         </div>
-
     </div>
 </div>
 </body>

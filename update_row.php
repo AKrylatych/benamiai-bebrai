@@ -13,7 +13,7 @@
             <?php
             include "guicontrol.php";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
-            echo "Vartotjas: ", $guictl->username, "<br>";
+            echo "Vartotojas: ", $guictl->username, "<br>";
 
             if (isset($_POST['confirm_edit'])) {
                 $userctl = new usercontrol();
@@ -24,7 +24,6 @@
                 }
             } else {
                 $rowid = $_POST['rowid'];
-                echo "rowid: $rowid";
                 $guictl->draw_tablerow($rowid);
             }
             $guictl->spawnBackToGUI();

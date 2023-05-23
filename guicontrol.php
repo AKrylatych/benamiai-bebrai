@@ -45,7 +45,6 @@ class guicontrol extends usercontrol
             echo "<td>$value</td>";
         }
         echo "</tr>";
-        echo " rowprint: ", print_r($row);
         echo "<tr>"; // Duomenys keitimui
         echo "<td></td><form action='update_row.php' method='post'>";
         echo "<td><select name='new_vartotojo_tipas'>"; // Vartotojo tipas
