@@ -36,6 +36,7 @@ class guicontrol
     }
     public function draw_tablerow($rowid):void {
         $dbctl = new dbcontrol();
+        echo "i'm doing things <br>";
         $selected_row = $dbctl->getRowbyID($rowid);
         $columns = $selected_row->fetch_fields();
         echo "<table>";

@@ -14,10 +14,19 @@
             include "dbcontrol.php";
             include "guicontrol.php";
 
-            $rowid = $_POST['rowid'];
+            echo "debug1<br>";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
+            echo "Sveikas, ", $guictl->username, "!<br>";
+            echo "Tipas: ", $guictl->usertype, "<br>";
+
+            echo "debug2<br>";
+            $rowid = $_POST['rowid'];
+            echo "selected rowid: $rowid";
+            echo "debug3<br>";
             $guictl->draw_tablerow($rowid);
+            echo "debug4<br>";
             $guictl->spawnBackToGUI();
+            echo "debug5<br>";
 
             ?>
         </div>

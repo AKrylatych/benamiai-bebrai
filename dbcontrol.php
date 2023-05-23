@@ -29,11 +29,11 @@ class dbcontrol
     }
 
     public function getValuebyID($ID, $column, $tablename):mysqli_result {
-        $query = "SELECT $column FROM $tablename WHERE ID = $ID";
+        $query = "SELECT $column FROM $tablename WHERE VartotojoID = $ID";
         return $this->conn->query($query);
     }
     public function getRowbyID($ID):mysqli_result {
-        $query = "SELECT * FROM $this->usertable WHERE ID = $ID";
+        $query = "SELECT * FROM $this->usertable WHERE VartotojoID = $ID";
         return $this->conn->query($query);
     }
     public function findValueinColumn($searchstring, $column, $tablename):mysqli_result {
