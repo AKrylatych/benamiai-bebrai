@@ -2,11 +2,6 @@
 include "dbcontrol.php";
 class guicontrol
 {
-    public function __construct()
-    {
-        echo "constructing...";
-    }
-
     public function draw_usertable() {
         $dbctl = new dbcontrol();
         $table = $dbctl->selectUserTable();
