@@ -81,28 +81,28 @@ class guicontrol extends usercontrol
         echo "</thead>";
 
         echo "<tbody>";
+        $rownumber = 0;
         while ($row = $table->fetch_assoc()) {
             echo "<tr>";
             // Generuoja eilutes
 //            $colnum = 0;
-            $rowid = 0;
             echo "<td>" . $row['VartotojoID'] . "</td>";
             echo "<td>" . $row['Tipas'] . "</td>";
             echo "<td>" . $row['Vardas'] . "</td>";
             echo "<td> * * * </td>";
             echo "<td>" . $row['Elpastas'] . "</td>";
             echo "<td><form action='delete_row.php' method='post'>";
-            echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
+            echo "<input type='submit' value='Trinti'>";
             echo "<input type='hidden' name='username' value='$this->username'>";
             echo "<input type='hidden' name='usertype' value='$this->usertype'>";
-            echo "<input type='hidden' name='rowid' value='$rowid'>";
+            echo "<input type='hidden' name='rowid' value='" . $row['VartotojoID']. "'>";
             echo "</form></td>";
 
             echo "<td><form action='update_row.php' method='post'>";
             echo "<input type='submit' value='Redaguoti'>";
             echo "<input type='hidden' name='username' value='$this->username'>";
             echo "<input type='hidden' name='usertype' value='$this->usertype'>";
-            echo "<input type='hidden' name='rowid' value='$rowid'>";
+            echo "<input type='hidden' name='rowid' value='" . $row['VartotojoID']. "'>";
             echo "</form></td>";
 //                        $rowid = $value;
 //            foreach ($row as $value) {

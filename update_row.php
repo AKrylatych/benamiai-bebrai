@@ -13,6 +13,7 @@
             <?php
             include "guicontrol.php";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
+            print_r($_POST);
             echo "Sveikas, ", $guictl->username, "!<br>";
 
 //            if (isset($_POST['confirm_edit'])) {
@@ -30,6 +31,7 @@
 //                }
 //            } else {
                 $rowid = $_POST['rowid'];
+                echo "rowid: $rowid";
                 $guictl->draw_tablerow($rowid);
 //            }
             $guictl->spawnBackToGUI();
