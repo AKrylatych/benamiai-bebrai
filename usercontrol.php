@@ -41,7 +41,6 @@ class usercontrol {
         $dbctl = new dbcontrol();
         $result = $dbctl->findTypebyName($name);
         $row = $result->fetch_assoc();
-        print_r($row);
         return $row['Tipas'];
     }
     protected function getUserPasswordbyName($name) {

@@ -10,8 +10,8 @@
     <div class="content">
         <h1>Vartotojo sąsaja</h1>
         <?php
-
-            echo "Prisijungęs Adamas"
+            echo "Sveikas, ", $_POST['username'], "!<br>";
+            echo "Tipas: ", $_POST['usertype'], "<br>";
         ?>
     </div>
 </div>

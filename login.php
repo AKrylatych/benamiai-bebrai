@@ -40,8 +40,10 @@
                     break;
             }
             echo "User: $userType";
-            echo '<form action="/sasajos/'.$url.'" method="post">';
+            echo '<form action="'.$url.'" method="post">';
             echo '<input type="submit" value="Prisijungti">';
+            echo '<input type="hidden" name="usertype" value="'.$userType.'">';
+            echo '<input type="hidden" name="username" value="'.$vartotojo_vardas.'">';
             echo '</form>';
 
         } else {
