@@ -28,6 +28,7 @@
             $userctl = new usercontrol();
 
             $userctl->addUser($vartotojo_vardas, $vartotojo_slaptazodis, $vartotojo_elpastas);
+            $this->back_to_login();
         } else {
             echo "Netinkami duomenys.<br>Bandykite is naujo.";
             $userctl = new usercontrol();

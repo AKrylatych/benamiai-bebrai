@@ -12,7 +12,6 @@ class usercontrol {
         } else {
             echo "<br><br>Toks vartotojas jau yra, prašome naudoti kitą vardą.<br><br>";
         }
-        $this->back_to_login();
     }
     public function loginUser($name, $insecure_passwd):void {
         $hashctl = new hashcontrol();
@@ -26,7 +25,7 @@ class usercontrol {
                 echo "Tikrinami duomenys...<br>";
                 if ($hashctl->check_hashed_password($insecure_passwd, $database_password)) {
                     echo "Viskas gerai, tinka.";
-                    
+
                 } else {
                     echo "<br><br>Tokio vartotojo nėra arba duomenys neteisingi.<br><br>";
                 }
@@ -38,9 +37,12 @@ class usercontrol {
         return $dbctl->findValueinColumn($name, "Vardas", $dbctl->usertable);
     }
 
-    protected function getUserPasswordbyID($UID):mysqli_result { // Gaunamas vartotojo slaptazodis pagal varda.
+    public function getUserTypebyName($name) {
         $dbctl = new dbcontrol();
-        return $dbctl->getValuebyID($UID, "Slaptazodis", $dbctl->usertable);
+        $result = $dbctl->findTypebyName($name);
+        $row = $result->fetch_assoc();
+        print_r($row);
+        return $row['Tipas'];
     }
     protected function getUserPasswordbyName($name) {
 

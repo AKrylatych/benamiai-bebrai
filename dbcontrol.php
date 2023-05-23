@@ -35,6 +35,14 @@ class dbcontrol
         $query = "SELECT Slaptazodis FROM $this->usertable WHERE Vardas LIKE '%$name'";
         return $this->conn->query($query);
     }
+    public function findTypebyName($name):mysqli_result {
+        $query = "SELECT Tipas FROM $this->usertable WHERE Vardas LIKE '%$name'";
+        return $this->conn->query($query);
+    }
+    public function selectTable($table):mysqli_result {
+        $query = "SELECT * FROM $table";
+        return $this->conn->query($query);
+    }
 
     public function insertNormalUser($name, $hashedpasswd, $email):void {
         $query = "INSERT INTO $this->usertable (Vardas, Slaptazodis, Elpastas) VALUES (?, ?, ?)";
