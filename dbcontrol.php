@@ -69,7 +69,7 @@ class dbcontrol
         return $this->conn->query($query);
     }
     public function deleteUserRow($UID):mysqli_result {
-        $query = "DELETE FROM $this->usertable WHERE VartotojID = $UID";
+        $query = "DELETE FROM $this->usertable WHERE VartotojoID = $UID";
         return $this->conn->query($query);
     }
 

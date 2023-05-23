@@ -82,7 +82,6 @@ class guicontrol extends usercontrol
         echo "</thead>";
 
         echo "<tbody>";
-        $rownumber = 0;
         while ($row = $table->fetch_assoc()) {
             echo "<tr>";
             // Generuoja eilutes
