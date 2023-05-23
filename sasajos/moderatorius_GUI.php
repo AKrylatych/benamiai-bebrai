@@ -11,8 +11,12 @@
         <div class="users">
             <h1>Moderatoriaus sąsaja</h1>
             <?php
+            include "guicontrol.php";
             echo "Sveikas, ", $_POST['username'], "!<br>";
             echo "Tipas: ", $_POST['usertype'], "<br>";
+
+            $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
+            $guictl->draw_usertable();
             ?>
         </div>
 
