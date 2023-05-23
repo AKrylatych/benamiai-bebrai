@@ -27,7 +27,7 @@
                 echo "Klaida: Nepavyko atnaujinti vartotojo.";
 
             }
-        $guictl->spawnBackToGUI();
+            $guictl->spawnBackToGUI();
 
             ?>
         </div>

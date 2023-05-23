@@ -65,8 +65,8 @@ class dbcontrol
         }
     }
 
-    public function updateUserRow($UID, $type, $name, $email) {
-        $query = "UPDATE your_table_name SET Tipas = '$type', Vardas = '$name', Elpastas = '$email' WHERE VartotojoID = $UID";
+    public function updateUserRow($UID, $type, $name, $email):mysqli_result {
+        $query = "UPDATE $this->usertable SET Tipas = '$type', Vardas = '$name', Elpastas = '$email' WHERE VartotojoID = $UID";
         return $this->conn->query($query);
     }
 
