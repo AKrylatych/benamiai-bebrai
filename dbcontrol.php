@@ -9,8 +9,7 @@ class dbcontrol
     private mysqli $conn;
     public string $usertable = "vartotojai2";
 
-    public function __construct()
-    {   // Gaunami aplinkos kintamieji is konteinerio
+    public function __construct() {   // Gaunami aplinkos kintamieji is konteinerio
         $this->servername = getenv('Server');
         $this->username = getenv('Username');
         $this->password = getenv('Password');
@@ -21,6 +20,12 @@ class dbcontrol
             header("Location: /pages/connection_err.html");
             die("Connection failed: " . $this->conn->connect_error);
         }
+    }
+    public function printEnvs() {
+        echo $this->servername, "<br>";
+        echo $this->username, "<br>";
+        echo $this->password, "<br>";
+        echo $this->database, "<br>";
     }
 
     public function getValuebyID($ID, $column, $tablename):mysqli_result {

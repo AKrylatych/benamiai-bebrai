@@ -19,7 +19,7 @@
             echo "testas";
             $guictl = new guicontrol();
             echo "guicontrol";
-            $guictl->draw_usertable();
+//            $guictl->draw_usertable();
             ?>
         </div>
 
