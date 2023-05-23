@@ -27,7 +27,6 @@
                     echo "Sėkmingai atnaujintas vartotojas!";
                 } else {
                     echo "Klaida: Nepavyko atnaujinti vartotojo.";
-
                 }
             } else {
                 $rowid = $_POST['rowid'];
