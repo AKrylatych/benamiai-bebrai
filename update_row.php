@@ -18,11 +18,6 @@
 
             if (isset($_POST['confirm_edit'])) {
                 $userctl = new usercontrol();
-                echo "Recieved values: <br>";
-                echo "rowid: ", $_POST['rowid'];
-                echo "vartipas: ", $_POST['new_vartotojo_tipas'];
-                echo "varvardas: ", $_POST['new_vartojo_vardas'];
-                echo "varpastas: ", $_POST['new_vartotojo_elpastas'];
                 if ($userctl->updateUser($_POST['rowid'], $_POST['new_vartotojo_tipas'], $_POST['new_vartojo_vardas'], $_POST['new_vartotojo_elpastas'])) {
                     echo "Sėkmingai atnaujintas vartotojas!";
                 } else {

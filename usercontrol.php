@@ -55,7 +55,7 @@ class usercontrol {
         }
     }
 
-    public function updateUser($UID, $userType, $userName, $userEmail):mysqli_result {
+    public function updateUser($UID, $userType, $userName, $userEmail):bool {
         $dbctl = new dbcontrol();
         return $dbctl->updateUserRow($UID, $userType, $userName, $userEmail);
     }
