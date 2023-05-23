@@ -21,7 +21,7 @@ class dbcontrol
             die("Connection failed: " . $this->conn->connect_error);
         }
     }
-    public function printEnvs() {
+    public function printEnvs():void {
         echo $this->servername, "<br>";
         echo $this->username, "<br>";
         echo $this->password, "<br>";
@@ -30,6 +30,10 @@ class dbcontrol
 
     public function getValuebyID($ID, $column, $tablename):mysqli_result {
         $query = "SELECT $column FROM $tablename WHERE ID = $ID";
+        return $this->conn->query($query);
+    }
+    public function getRowbyID($ID):mysqli_result {
+        $query = "SELECT * FROM $this->usertable WHERE ID = $ID";
         return $this->conn->query($query);
     }
     public function findValueinColumn($searchstring, $column, $tablename):mysqli_result {

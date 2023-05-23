@@ -36,7 +36,7 @@
                     break;
                 default:
                     echo "Bloga užklausa.";
-                    $user->back_to_login();
+                    $user->back_to_login_timeout();
                     break;
             }
             echo "<br>Vartotojo tipas: $userType";
@@ -49,7 +49,7 @@
         } else {
             echo "No params, failed login.";
             $user = new usercontrol();
-            $user->back_to_login();
+            $user->back_to_login_timeout();
         } ?>
     </div>
 </div>

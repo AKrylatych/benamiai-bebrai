@@ -54,7 +54,7 @@ class usercontrol {
             return $row['Slaptazodis'];
         }
     }
-    public function back_to_login():void {
+    public function back_to_login_timeout():void {
         echo "<script>
             setTimeout(function() {
                 window.location.href = 'index.html';

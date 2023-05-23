@@ -32,7 +32,7 @@
         } else {
             echo "Netinkami duomenys.<br>Bandykite is naujo.";
             $userctl = new usercontrol();
-            $userctl->back_to_login();
+            $userctl->back_to_login_timeout();
         }
         ?>
     </div>

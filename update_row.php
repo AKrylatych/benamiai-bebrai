@@ -2,22 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Moderatoriaus sąsaja</title>
+    <title>Moderatoriaus įrašo redagavimas</title>
     <link rel="stylesheet" href="pages/user_ui.css">
 </head>
 <body>
 <div class="container">
     <div class="content">
         <div class="users">
-            <h1>Moderatoriaus sąsaja</h1>
+            <h1>Įrašo redagavimas</h1>
             <?php
+            include "dbcontrol.php";
             include "guicontrol.php";
+
+            $rowid = $_POST['rowid'];
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
-            echo "Sveikas, ", $guictl->username, "!<br>";
-            echo "Tipas: ", $guictl->usertype, "<br>";
-            echo "<br>";
-            $guictl->spawnlogout();
-            $guictl->draw_usertable();
+            $guictl->draw_tablerow($rowid);
+            $guictl->spawnBackToGUI();
+
             ?>
         </div>
 
