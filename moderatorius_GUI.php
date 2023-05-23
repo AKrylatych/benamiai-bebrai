@@ -14,8 +14,6 @@
             include "guicontrol.php";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
             echo "Sveikas, ", $guictl->username, "!<br>";
-            echo "Tipas: ", $guictl->usertype, "<br>";
-            echo "<br>";
             $guictl->spawnlogout();
             $guictl->draw_usertable();
             ?>

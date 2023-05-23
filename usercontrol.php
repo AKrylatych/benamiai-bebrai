@@ -54,6 +54,11 @@ class usercontrol {
             return $row['Slaptazodis'];
         }
     }
+
+    public function updateUser($UID, $userType, $userName, $userEmail):mysqli_result {
+        $dbctl = new dbcontrol();
+        return $dbctl->updateUserRow($UID, $userType, $userName, $userEmail);
+    }
     public function back_to_login_timeout():void {
         echo "<script>
             setTimeout(function() {

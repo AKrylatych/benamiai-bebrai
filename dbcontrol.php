@@ -24,12 +24,6 @@ class dbcontrol
             die("Connection failed: " . $this->conn->connect_error);
         }
     }
-    public function printEnvs():void {
-        echo $this->servername, "<br>";
-        echo $this->username, "<br>";
-        echo $this->password, "<br>";
-        echo $this->database, "<br>";
-    }
 
     public function getValuebyID($ID, $column, $tablename):mysqli_result {
         $query = "SELECT $column FROM $tablename WHERE VartotojoID = $ID";
@@ -69,6 +63,11 @@ class dbcontrol
         } else {
             echo "Error: " , $query , "<br>" , $stmt->error;
         }
+    }
+
+    public function updateUserRow($UID, $type, $name, $email) {
+        $query = "UPDATE your_table_name SET Tipas = '$type', Vardas = '$name', Elpastas = '$email' WHERE VartotojoID = $UID";
+        return $this->conn->query($query);
     }
 
 }

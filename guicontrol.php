@@ -1,6 +1,6 @@
 <?php
-include "dbcontrol.php";
-class guicontrol
+include "usercontrol.php";
+class guicontrol extends usercontrol
 {
     public string $username;
     public string $usertype;
@@ -20,7 +20,7 @@ class guicontrol
             'Vartotojas' => "vartotojas_GUI.php",
             default => "index.html",
         };
-        echo "<form action='$url'>";
+        echo "<form action='$url' method='post'>";
         echo '<input type="submit" value="Grįžti">';
         echo "<input type='hidden' name='username' value='$this->username'>";
         echo "<input type='hidden' name='usertype' value='$this->usertype'>";
@@ -28,72 +28,49 @@ class guicontrol
     }
     public function draw_tablerow($rowid):void {
         $dbctl = new dbcontrol();
-        echo "I'm doing things <br>";
         $selected_row = $dbctl->getRowbyID($rowid);
         $columns = $selected_row->fetch_fields();
         echo "<table>";
         echo "<thead>";
         echo "<tr>";
         foreach ($columns as $column) {
-            echo '<th>' . $column->name . '</th>';
+            if($column->name == "Slaptazodis") {
+                echo '<th> * * * </th>';
+            } else {
+                echo '<th>' . $column->name . '</th>';
+            }
         }
         echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
-        $row = $selected_row->fetch_assoc();
         echo "<tr>";
-        foreach ($row as $value) { // pavyzdinis
-            echo "<td>$value</td>";
-        }
         echo "</tr>";
 
         echo "<tr>"; // Duomenys keitimui
-        echo "<td><select>"; // Vartotojo tipas
+        echo "<td></td><form action='update_row.php' method='post'>";
+        echo "<td><select name='new_vartotojo_tipas'>"; // Vartotojo tipas
         echo "<option value='Gaudytojas'>Gaudytojas</option>";
         echo "<option value='Moderatorius'>Moderatorius</option>";
         echo "<option value='Vartotojas'>Vartotojas</option>";
         echo "</select></td>";
 
-        echo "<td><input type='text' value='$row[2]'></td>"; // Vardas
+        $row = $selected_row->fetch_assoc();
+        echo "<td><input name='new_vartojo_vardas' type='text' value='$row[2]'></td>"; // Vardas
 
         echo "<td></td>"; // Praleisti slaptazodi
 
-        echo "<td><input type='text' value='$row[4]'></td>"; // Elpastas
-        echo "</tr>";
-//        while ($row = $selected_row->fetch_assoc()) {
-//        <tr>
-//            switch ($colnum) {
-//                case 1:
-//                    // combobox
-//                    break;
-//                case 2:
-//                    // textbox
-//                    break;
-//                case 3:
-//                    // skip
-//                    break;
-//                case 4:
-//
-//                default:
-//                    echo "<tr>";
-//                    break;
-//            }
-//            echo "<tr>";
-//
-//            $colnum++;
-//        }
-//        echo "</tr>";
-        echo "</tbody>";
-        echo "</table>";
+        echo "<td><input name='new_vartotojo_elpastas' type='text' value='$row[4]'></td>"; // Elpastas
+        echo "<td>";
+        echo "<input type='hidden' name='rowid' value='$rowid'>";
+        echo "<input type='submit' value='Keisti' name='confirm_edit'>";
+        echo "</form></tr>";
+        echo "</tbody></table>";
 
     }
     public function draw_usertable():void {
         $dbctl = new dbcontrol();
-        echo "deee";
         $table = $dbctl->selectUserTable();
-        echo "deee2";
         $columns = $table->fetch_fields();
-        echo "deee3";
         echo "<table>";
         echo "<thead>";
         echo "<tr>";
@@ -107,39 +84,58 @@ class guicontrol
         while ($row = $table->fetch_assoc()) {
             echo "<tr>";
             // Generuoja eilutes
-            $colnum = 0;
+//            $colnum = 0;
             $rowid = 0;
-            foreach ($row as $value) {
-                switch ($colnum) {
-                    case 0:
-                        echo "<td>" . $value . "</td>";
-                        $rowid = $value;
-                        break;
-                    case 3:
-                        echo "<td> * * * </td>";
-                        break;
-                    case 4:
-                        echo "<td>" . $value . "</td>";
-                        echo "<td><form action='delete_row.php' method='post'>";
-                        echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
-                        echo "<input type='hidden' name='username' value='$this->username'>";
-                        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
-                        echo "<input type='hidden' name='rowid' value='$rowid'>";
-                        echo "</form></td>";
+            echo "<td>" . $row[0] . "</td>";
+            echo "<td>" . $row[1] . "</td>";
+            echo "<td>" . $row[2] . "</td>";
+            echo "<td> * * * </td>";
+            echo "<td>" . $row[3] . "</td>";
+            echo "<td><form action='delete_row.php' method='post'>";
+            echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
+            echo "<input type='hidden' name='username' value='$this->username'>";
+            echo "<input type='hidden' name='usertype' value='$this->usertype'>";
+            echo "<input type='hidden' name='rowid' value='$rowid'>";
+            echo "</form></td>";
 
-                        echo "<td><form action='update_row.php' method='post'>";
-                        echo "<input type='submit' value='Redaguoti'>";
-                        echo "<input type='hidden' name='username' value='$this->username'>";
-                        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
-                        echo "<input type='hidden' name='rowid' value='$rowid'>";
-                        echo "</form></td>";
-                        break;
-                    default:
-                        echo "<td>" . $value . "</td>";
-                        break;
-                }
-                $colnum++;
-            }
+            echo "<td><form action='update_row.php' method='post'>";
+            echo "<input type='submit' value='Redaguoti'>";
+            echo "<input type='hidden' name='username' value='$this->username'>";
+            echo "<input type='hidden' name='usertype' value='$this->usertype'>";
+            echo "<input type='hidden' name='rowid' value='$rowid'>";
+            echo "</form></td>";
+//                        $rowid = $value;
+//            foreach ($row as $value) {
+//                switch ($colnum) {
+//                    case 0:
+//                        echo "<td>" . $value . "</td>";
+//                        $rowid = $value;
+//                        break;
+//                    case 3:
+//                        echo "<td> * * * </td>";
+//                        break;
+//                    case 4:
+//                        echo "<td>" . $value . "</td>";
+//                        echo "<td><form action='delete_row.php' method='post'>";
+//                        echo "<input type='submit' value='Trinti'><input type='hidden' name='rowid' value='$rowid'>";
+//                        echo "<input type='hidden' name='username' value='$this->username'>";
+//                        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
+//                        echo "<input type='hidden' name='rowid' value='$rowid'>";
+//                        echo "</form></td>";
+//
+//                        echo "<td><form action='update_row.php' method='post'>";
+//                        echo "<input type='submit' value='Redaguoti'>";
+//                        echo "<input type='hidden' name='username' value='$this->username'>";
+//                        echo "<input type='hidden' name='usertype' value='$this->usertype'>";
+//                        echo "<input type='hidden' name='rowid' value='$rowid'>";
+//                        echo "</form></td>";
+//                        break;
+//                    default:
+//                        echo "<td>" . $value . "</td>";
+//                        break;
+//                }
+//                $colnum++;
+//            }
             echo "<tr>";
         }
         echo "</tbody>";

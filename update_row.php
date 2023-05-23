@@ -11,22 +11,18 @@
         <div class="users">
             <h1>Įrašo redagavimas</h1>
             <?php
-            echo "debug0<br>";
             include "guicontrol.php";
-
-            echo "debug1<br>";
             $guictl = new guicontrol($_POST['username'], $_POST['usertype']);
             echo "Sveikas, ", $guictl->username, "!<br>";
-            echo "Tipas: ", $guictl->usertype, "<br>";
-
-            echo "debug2<br>";
             $rowid = $_POST['rowid'];
-            echo "selected rowid: $rowid";
-            echo "debug3<br>";
-            $guictl->draw_tablerow($rowid);
-            echo "debug4<br>";
+
+            if (isset($_POST['confirm_edit'])) {
+                $userctl = new usercontrol();
+                $userctl->updateUser($_POST['rowid'], $_POST['new_vartotojo_tipas'], $_POST['new_vartojo_vardas'], $_POST['new_vartotojo_elpastas']);
+            } else {
+                $guictl->draw_tablerow($rowid);
+            }
             $guictl->spawnBackToGUI();
-            echo "debug5<br>";
 
             ?>
         </div>
