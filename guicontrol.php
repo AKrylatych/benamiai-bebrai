@@ -26,10 +26,12 @@ class guicontrol
                         echo "<td> * * * </td>";
                         break;
                     case 4:
-                        echo "<td> pomegranate</td>";
+                        echo "<td>" . $value . "</td>";
+                        echo "<td>Trinti</td>";
+                        echo "<td>Redaguoti</td>";
                         break;
                     default:
-                        echo "<td>" . $value . "</td>";
+                        echo "<td>" . $colnum . "|" . $value . "</td>";
                         break;
                 }
                 $colnum++;
