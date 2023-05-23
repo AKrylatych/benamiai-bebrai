@@ -2,11 +2,15 @@
 include "dbcontrol.php";
 class guicontrol
 {
+    public function spawnlogout() {
+        echo '<form action="index.html">';
+        echo '<input type="submit" value="Prisijungti">';
+        echo '</form>';
+    }
     public function draw_usertable() {
         $dbctl = new dbcontrol();
         $table = $dbctl->selectUserTable();
         $columns = $table->fetch_fields();
-        echo "<form>";
         echo "<table>";
         echo "<thead>";
         echo "<tr>";
@@ -25,6 +29,7 @@ class guicontrol
             foreach ($row as $value) {
                 switch ($colnum) {
                     case 0:
+                        echo "<td>" . $value . "</td>";
                         $rowid = $value;
                         break;
                     case 3:
@@ -32,9 +37,8 @@ class guicontrol
                         break;
                     case 4:
                         echo "<td>" . $value . "</td>";
-                        echo "<td><input type='button' name='delete_row' value='$rowid'>Trinti</input></td>";
-                        echo "<td><input type='button' name='edit_row' value='$rowid'>Redaguoti</input></td>";
-                        echo "<td>::Rowid - $rowid::</td>";
+                        echo "<td><form><input type='button' name='delete_row' value='Trinti'></form></td>";
+                        echo "<td><form><input type='button' name='edit_row' value='Redaguoti'></form></td>";
                         break;
                     default:
                         echo "<td>" . $value . "</td>";
@@ -46,7 +50,6 @@ class guicontrol
         }
         echo "</tbody>";
         echo "</table>";
-        echo "</form>";
 
     }
 }

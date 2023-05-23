@@ -16,9 +16,9 @@
             $usertype = $_POST['usertype'];
             echo "Sveikas, ", $username, "!<br>";
             echo "Tipas: ", $usertype, "<br>";
-            echo "testas";
             $guictl = new guicontrol();
-            echo "guicontrol";
+            echo "<br>";
+            $guictl->spawnlogout();
             $guictl->draw_usertable();
             ?>
         </div>
