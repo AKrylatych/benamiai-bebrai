@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/images/sad_dog.jpg");
+    background-image: url("../images/sad_dog.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
