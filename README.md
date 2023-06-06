@@ -1,3 +1,3 @@
-# dbsend
-An app designed to be used with container systems.
-This is intended to be used with OpenShift.
+# benamiai-bebrai
+Benamių bebrų prisijungimo ir vartotojų valdymo programa.
+Numatyta, kad programa bus naudojama su mariadb duomenų baze OpenShift arba Kubernetes aplinkoje.
